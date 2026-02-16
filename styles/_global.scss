@@ -1,0 +1,68 @@
+@use "tailwindcss";
+
+@font-face {
+  font-family: "poppins";
+  src: url("/fonts/popins.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "playfair";
+  src: url("/fonts/playfair.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "satoshi";
+  src: url("/fonts/satoshi.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root {
+  --white: #ffffff;
+  --cream: #fffef8;
+  --palecream: rgb(255, 254, 248, 0.8);
+  --text: #3e171b;
+  --pink: #471f28;
+  --black: #151515;
+  --palepink: #ffe0e6;
+  --charcoal: #050608;
+  --gold: #a28b41;
+  --green: #204033;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+  }
+}
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: "poppins", sans-serif;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text);
+  font-family: "playfair", serif;
+}
+
+p,
+span {
+  color: rgb(62, 23, 27, 0.85);
+}
+
+button,
+img,
+svg {
+  cursor: pointer !important;
+}
