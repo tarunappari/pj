@@ -1,8 +1,8 @@
 @use "tailwindcss";
 
 @font-face {
-  font-family: "poppins";
-  src: url("/fonts/popins.ttf") format("truetype");
+  font-family: "jungle";
+  src: url("/fonts/jungle.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,28 +10,26 @@
 @font-face {
   font-family: "playfair";
   src: url("/fonts/playfair.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "satoshi";
-  src: url("/fonts/satoshi.ttf") format("truetype");
+  font-family: "popins";
+  src: url("/fonts/popins.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
 
 :root {
-  --white: #ffffff;
-  --cream: #fffef8;
   --palecream: rgb(255, 254, 248, 0.8);
-  --text: #3e171b;
-  --pink: #471f28;
-  --black: #151515;
-  --palepink: #ffe0e6;
-  --charcoal: #050608;
-  --gold: #a28b41;
-  --green: #204033;
+  --green: #0a2c1b;
+  --palegreen: #697768;
+  --white: #ffede3;
+  --cream: #ddc3c4;
+  --brown:#663c35;
+  --blue:#bfcab9;
+  --pink:#d19f96;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,7 +42,7 @@
 body {
   background: var(--white);
   color: var(--text);
-  font-family: "poppins", sans-serif;
+  font-family: "popins", sans-serif;
   font-optical-sizing: auto;
 }
 
@@ -52,13 +50,12 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--text);
+  color: var(--green);
   font-family: "playfair", serif;
 }
 
-p,
-span {
-  color: rgb(62, 23, 27, 0.85);
+span,p{
+  color: var(--palegreen);
 }
 
 button,
