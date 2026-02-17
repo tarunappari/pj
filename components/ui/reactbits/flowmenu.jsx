@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
 import './flowmenu.css';
+import Image from 'next/image';
 
 function FlowingMenu({
   items = [],
@@ -139,12 +140,12 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
     <div className="menu__item" ref={itemRef} style={{ borderColor }}>
       <a
         className="menu__item-link"
-        href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{ color: textColor }}
+        style={{ color: textColor,display:'flex',alignItems:'center',gap:'1rem' }}
       >
         {text}
+        <Image src={image} alt='img' style={{width:'5rem',borderRadius:"1rem"}} />
       </a>
       <div className="marquee" ref={marqueeRef} style={{ backgroundColor: marqueeBgColor }}>
         <div className="marquee__inner-wrap">
@@ -152,7 +153,7 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
             {[...Array(repetitions)].map((_, idx) => (
               <div className="marquee__part" key={idx} style={{ color: marqueeTextColor }}>
                 <span>{text}</span>
-                <div className="marquee__img" style={{ backgroundImage: `url(${image})` }} />
+                <div className="marquee__img" style={{ backgroundImage: `url(${image.src})` }} />
               </div>
             ))}
           </div>

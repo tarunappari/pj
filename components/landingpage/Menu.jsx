@@ -14,7 +14,11 @@ import chelo3 from "@/public/assets/spls/chelo3.jpg";
 
 import styles from "@/styles/landingpage/Menu.module.scss";
 import FlowingMenu from "../ui/reactbits/flowmenu";
-import Flavors from "../ui/flavors";
+
+import flavor1 from '@/public/assets/flavors/flavors1.png'
+import flavor2 from '@/public/assets/flavors/flavors2.png'
+import flavor3 from '@/public/assets/flavors/flavors3.png'
+import flavor4 from '@/public/assets/flavors/flavors4.png'
 
 const images = [
   {
@@ -42,24 +46,24 @@ const images = [
 
 const demoItems = [
   {
-    link: "#",
+    link: "",
     text: "Konaseema Style Curries",
-    image: "https://picsum.photos/600/400?random=1",
+    image: flavor1,
   },
   {
-    link: "#",
+    link: "",
     text: "Authentic Pot Biryanis",
-    image: "https://picsum.photos/600/400?random=2",
+    image: flavor2,
   },
   {
-    link: "#",
+    link: "",
     text: "Tandoori & Starters",
-    image: "https://picsum.photos/600/400?random=3",
+    image: flavor3,
   },
   {
-    link: "#",
+    link: "",
     text: "Coastal Inspired Flavours",
-    image: "https://picsum.photos/600/400?random=4",
+    image: flavor4,
   },
 ];
 
