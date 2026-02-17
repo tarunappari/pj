@@ -44,7 +44,7 @@ export default function Hero() {
           start: `${index * 30}% top`,
           end: `${index * 45 + 25}% bottom`,
         },
-        x: 400,
+        x: 600,
         y: 300,
         rotate: 15 - Math.sin((index * Math.PI) / 2 - Math.PI / 2) * 10,
         scale: 1.3,
@@ -67,7 +67,7 @@ export default function Hero() {
           start: `${index * 30}% top`,
           end: `${index * 45 + 25}% bottom`,
         },
-        x: -450,
+        x: -650,
         y: 300,
         rotate: -15 + Math.sin((index * Math.PI) / 2 - Math.PI / 2) * 10,
         scale: 1.3,
@@ -680,7 +680,7 @@ export default function Hero() {
 
           {/* Big Leaves */}
           <g>
-            {[...Array(6)].map((_, i) => (
+            {[...Array(5)].map((_, i) => (
               <g key={i}>
                 <use href="#rightLeave" />
                 <use href="#leftLeave" />

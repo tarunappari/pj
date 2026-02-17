@@ -1,0 +1,54 @@
+.container {
+  background-color: var(--white);
+  z-index: 99;
+  position: relative;
+
+  h1 {
+    font-size: 7rem;
+    color: var(--green);
+    text-align: center;
+    padding-top: 5rem;
+    font-weight: 800;
+    font-family: "greatvibes";
+    text-transform: capitalize;
+  }
+
+  .card {
+    overflow: hidden;
+    width: 96vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem;
+
+    h2{
+      font-size: 5rem;
+      font-family: 'playfair';
+      font-weight: 800;
+    }
+
+    .imgContainer {
+      position: absolute;
+      width: 30rem;
+      height: 17rem;
+    }
+
+    .imgContainer1 {
+      top: 1rem;
+      left: 5rem;
+    }
+
+    .imgContainer2 {
+      top: 1rem;
+      right: 5rem;
+    }
+
+    .imgContainer3 {
+      bottom: 1rem;
+      left: 35%;
+    }
+  }
+}
