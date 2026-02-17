@@ -21,11 +21,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "greatvibes";
+  src: url("/fonts/greatvibes.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 :root {
-  --palecream: rgb(255, 254, 248, 0.8);
-  --green: #0a2c1b;
+  --green: #092c19;
   --palegreen: #697768;
-  --white: #ffede3;
+  --white: #ffece3;
   --cream: #ddc3c4;
   --brown:#663c35;
   --blue:#bfcab9;
@@ -40,8 +46,6 @@
 }
 
 body {
-  background: var(--white);
-  color: var(--text);
   font-family: "popins", sans-serif;
   font-optical-sizing: auto;
 }

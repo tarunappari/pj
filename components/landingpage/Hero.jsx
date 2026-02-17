@@ -6,6 +6,8 @@ import styles from "@/styles/landingpage/HeroSection.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../common/navbar";
+import { IconToolsKitchen2, IconMap2 } from "@tabler/icons-react";
+import { log } from "three";
 
 // Using the actual image file that exists
 const heroBg1 = "/assets/images/pj1.png";
@@ -25,7 +27,6 @@ export default function Hero() {
 
     const leftLeaves = svg.querySelectorAll('[href="#leftLeave"]');
     const rightLeaves = svg.querySelectorAll('[href="#rightLeave"]');
-    const smallLeaves = svg.querySelectorAll('[href="#smallLeaf"]');
 
     // LEFT LEAVES
     leftLeaves.forEach((leaf, i) => {
@@ -73,29 +74,6 @@ export default function Hero() {
       });
     });
 
-    // SMALL LEAVES
-    smallLeaves.forEach((leaf) => {
-      gsap.set(leaf, {
-        y: Math.random() * 900,
-        x: Math.random() * 1000,
-        scale: Math.random() * 0.5 + 0.2,
-        transformOrigin: "50% 50%",
-      });
-
-      gsap.to(leaf, {
-        scrollTrigger: {
-          trigger: document.body,
-          scrub: 0.2,
-          start: "top top",
-          end: "bottom bottom",
-        },
-        scale: Math.random() * 0.5 + 0.2,
-        x: Math.random() * 1600,
-        y: Math.random() * 900,
-        rotate: Math.random() * 1000 + 360,
-      });
-    });
-
     // Reveal SVG after mount (prevents flash)
     requestAnimationFrame(() => {
       svg.style.opacity = 1;
@@ -115,6 +93,18 @@ export default function Hero() {
         },
       });
     }
+
+    // Change SVG z-index after 200vh
+    ScrollTrigger.create({
+      trigger: document.body,
+      start: "200vh top",
+      onEnter: () => {
+        svg.classList.add("behind");
+      },
+      onLeaveBack: () => {
+        svg.classList.remove("behind");
+      },
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -154,13 +144,17 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className={styles.heroCopy}>
+        <div style={{ marginTop: "-4rem" }} className={styles.heroCopy}>
           <h1>PJ</h1>
           <h2> Resto Cafe</h2>
           <h3 className={styles.heroSubtitle}>Good Food. Great Memories.</h3>
           <div className={styles.btnDiv}>
-            <button>Book a Table</button>
-            <button>Get Directions</button>
+            <button className={styles.table}>
+              Book a Table <IconToolsKitchen2 />{" "}
+            </button>
+            <button className={styles.directions}>
+              Get Directions <IconMap2 />
+            </button>
           </div>
         </div>
       </div>
