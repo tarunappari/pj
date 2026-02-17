@@ -71,11 +71,11 @@ const Menu = () => {
   return (
     <div className={styles.container}>
       <div>
-        <h1>Our Signature Items</h1>
+        <h1>Our Signature<span className="yellow"> Items</span> </h1>
 
         <HorizontalScrollCarousel images={images} />
 
-        <h1>Flavours of Konaseema</h1>
+        <h1>Flavours of <span className="yellow">Konaseema</span></h1>
 
         <div style={{ height: "600px", position: "relative" }}>
           <FlowingMenu

@@ -1,13 +1,14 @@
 "use client";
-
+import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import styles from "@/styles/landingpage/HeroSection.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../common/navbar";
 import { IconToolsKitchen2, IconMap2 } from "@tabler/icons-react";
-import { log } from "three";
+import phone from "@/public/assets/images/pj1.png";
+import hero from "@/public/assets/images/pj2.png";
+import desk from "@/public/assets/images/pj6.png";
 
 // Using the actual image file that exists
 const heroBg1 = "/assets/images/pj1.png";
@@ -119,11 +120,72 @@ export default function Hero() {
     { src: heroBg5, alt: "PJ Resto Cafe ambience 5" },
   ];
 
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Animation variants for Framer Motion
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [0, -8, 0],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className={styles.wrapper}>
       <Navbar />
       <div className={styles.heroText}>
-        <div className={styles.heroGallery}>
+        <div style={{ marginTop: "-4rem" }} className={styles.heroCopy}>
+          <h1>PJ</h1>
+          <h2> Resto Cafe</h2>
+          <h3 className={`${styles.heroSubtitle} yellow`}>Good Food. Great Memories.</h3>
+          <div className={styles.btnDiv}>
+            <button className={styles.table}>
+              Book a Table <IconToolsKitchen2 />{" "}
+            </button>
+            <button className={styles.directions}>
+              Get Directions <IconMap2 />
+            </button>
+          </div>
+        </div>
+
+        {/* <div className={styles.heroGallery}>
           <div className={styles.heroImageGrid}>
             {heroImages.map((image, index) => (
               <div
@@ -143,22 +205,69 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
-        <div style={{ marginTop: "-4rem" }} className={styles.heroCopy}>
-          <h1>PJ</h1>
-          <h2> Resto Cafe</h2>
-          <h3 className={styles.heroSubtitle}>Good Food. Great Memories.</h3>
-          <div className={styles.btnDiv}>
-            <button className={styles.table}>
-              Book a Table <IconToolsKitchen2 />{" "}
-            </button>
-            <button className={styles.directions}>
-              Get Directions <IconMap2 />
-            </button>
-          </div>
-        </div>
+        </div> */}
+
+        <motion.div
+          className="relative h-[400px] w-full sm:h-[500px]"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Decorative Shapes */}
+          <motion.div
+            className="absolute -top-4 left-1/4 h-16 w-16 rounded-full  bg-[#BBD189]/50"
+            variants={floatingVariants}
+            animate="animate"
+          />
+          <motion.div
+            className="absolute bottom-0 right-1/4 h-12 w-12 rounded-lg bg-green-200/50 dark:bg-green-800/30"
+            variants={floatingVariants}
+            animate="animate"
+            style={{ transitionDelay: "0.5s" }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 -left-0 h-6 w-6 rounded-full bg-green-200/50 dark:bg-green-800/30"
+            variants={floatingVariants}
+            animate="animate"
+            style={{ transitionDelay: "1s" }}
+          />
+
+          {/* Images */}
+          <motion.div
+            className="absolute left-1/2 top-0 h-48 w-100 -translate-x-1/2 rounded-2xl bg-muted p-2 shadow-lg sm:h-64 sm:w-100"
+            style={{ transformOrigin: "bottom center" }}
+            variants={imageVariants}
+          >
+            <img
+              src={hero.src}
+              alt="Student learning"
+              className="h-full w-full rounded-xl object-cover"
+            />
+          </motion.div>
+          <motion.div
+            className="herophoneImg absolute right-10 top-1/3 h-0 w-50 rounded-2xl bg-muted p-2 shadow-lg sm:h-56 sm:w-56"
+            style={{ transformOrigin: "left center" }}
+            variants={imageVariants}
+          >
+            <img
+              src={phone.src}
+              alt="Tutor assisting"
+              className="h-full w-full rounded-xl object-cover"
+            />
+          </motion.div>
+          <motion.div
+            className="absolute -bottom-0 left-10 h-32 w-82 rounded-2xl bg-muted p-2 shadow-lg sm:h-58 sm:w-80"
+            style={{ transformOrigin: "top right" }}
+            variants={imageVariants}
+          >
+            <img
+              src={desk.src}
+              alt="Collaborative discussion"
+              className="h-full w-full rounded-xl object-cover"
+            />
+          </motion.div>
+        </motion.div>
       </div>
-     
     </div>
   );
 }

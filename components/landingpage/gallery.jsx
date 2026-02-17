@@ -143,7 +143,7 @@ export default function Gallery() {
       />
 
       <div className={styles.partySection}>
-        <h1>Celebrate With Us</h1>
+        <h1>Celebrate With <span className="yellow">Us</span></h1>
         <p>
           Our spacious party hall accommodates <span>25 to 350 guests</span>,
           making it ideal for birthdays, corporate gatherings, family functions,

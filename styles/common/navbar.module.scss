@@ -34,14 +34,14 @@
 .logoImage {
   height: auto;
   object-fit: contain;
-  width: 6rem;
+  width: 7rem;
 }
 
 .navLinks {
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 2.5rem;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -53,7 +53,7 @@
   color: var(--green);
   text-decoration: none;
   font-family: "popins", sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.02em;
   transition:

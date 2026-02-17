@@ -45,7 +45,7 @@ const Contact = () => {
       <div className={styles.content}>
         {/* Header */}
         <div className={styles.header}>
-          <h2>Visit Us Today</h2>
+          <h2>Visit Us <span className="yellow">Today</span></h2>
           <p>We'd love to hear from you. Reach out to us anytime!</p>
         </div>
 

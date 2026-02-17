@@ -46,7 +46,7 @@ const About = () => {
           </div>
 
           <h1>
-            <span></span>Godavari Hospitality
+            <span></span><i className="yellow">Godavari</i> Hospitality
           </h1>
         </div>
         <div className={styles.imageContainer}>

@@ -20,7 +20,7 @@ function FlowingMenu({
           <MenuItem
             key={idx}
             {...item}
-            speed={speed}
+            speed={35}
             textColor={textColor}
             marqueeBgColor={marqueeBgColor}
             marqueeTextColor={marqueeTextColor}
