@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { HorizontalScrollCarousel } from "../ui/horizontal";
 
@@ -14,6 +14,7 @@ import chelo3 from "@/public/assets/spls/chelo3.jpg";
 
 import styles from "@/styles/landingpage/Menu.module.scss";
 import FlowingMenu from "../ui/reactbits/flowmenu";
+import Flavors from "../ui/flavors";
 
 const images = [
   {
