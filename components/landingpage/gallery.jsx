@@ -1,3 +1,4 @@
+'use client'
 import InteractiveImageBentoGallery from "../ui/gallerygrid";
 import styles from "@/styles/landingpage/gallery.module.scss";
 
@@ -17,6 +18,7 @@ import pj13 from "@/public/assets/images/pj13.png";
 import pj14 from "@/public/assets/images/pj14.png";
 import pj15 from "@/public/assets/images/pj15.png";
 import pj16 from "@/public/assets/images/pj16.png";
+import BlurReveal from "../animations/BlurAnimation";
 
 const imageItems = [
   {
@@ -143,12 +145,18 @@ export default function Gallery() {
       />
 
       <div className={styles.partySection}>
-        <h1>Celebrate With <span className="yellow">Us</span></h1>
-        <p>
-          Our spacious party hall accommodates <span>25 to 350 guests</span>,
-          making it ideal for birthdays, corporate gatherings, family functions,
-          and special occasions.
-        </p>
+        <BlurReveal>
+          <h1>
+            Celebrate With <span className="yellow">Us</span>
+          </h1>
+        </BlurReveal>
+        <BlurReveal delay={200}>
+          <p>
+            Our spacious party hall accommodates <span>25 to 350 guests</span>,
+            making it ideal for birthdays, corporate gatherings, family
+            functions, and special occasions.
+          </p>
+        </BlurReveal>
       </div>
     </div>
   );

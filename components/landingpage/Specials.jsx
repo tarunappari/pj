@@ -1,8 +1,33 @@
+"use client";
 import React from "react";
 import styles from "@/styles/landingpage/Specials.module.scss";
 import { IconAward, IconFlame, IconLeaf } from "@tabler/icons-react";
+import BlurReveal from "../animations/BlurAnimation";
+import { motion } from "framer-motion";
 
 const Specials = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
     <div className={styles.container}>
       <div className={styles.waveSection}>
@@ -21,53 +46,69 @@ const Specials = () => {
       <div className={styles.content}>
         <div className={styles.awardsSection}>
           <div className={styles.awardsHeader}>
-            <h2>Our Pride</h2>
-            <p>Celebrating flavor, tradition, and the love of our guests</p>
+            <BlurReveal>
+              <h2>Our Pride</h2>
+            </BlurReveal>
+            <BlurReveal delay={200}>
+              <p>Celebrating flavor, tradition, and the love of our guests</p>
+            </BlurReveal>
           </div>
 
-          <div className={styles.awardsGrid}>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.7 }}
+            className={styles.awardsGrid}
+          >
             <div className={styles.card}>
-              <div>
+              <motion.div variants={itemVariants}>
                 <IconAward />
-              </div>
-              <h3>Guest Favourite Spot</h3>
-              <p>
+              </motion.div>
+              <motion.h3 variants={itemVariants}>
+                Guest Favourite Spot
+              </motion.h3>
+              <motion.p variants={itemVariants}>
                 Loved by families and food enthusiasts for unforgettable dining
                 experiences filled with warmth and authentic taste.
-              </p>
-              <span>
-                 VOTED BY OUR GUESTS
-              </span>
+              </motion.p>
+              <motion.span variants={itemVariants}>
+                VOTED BY OUR GUESTS
+              </motion.span>
             </div>
 
             <div className={`${styles.card} ${styles.highlightCard1}`}>
-              <div>
+              <motion.div variants={itemVariants}>
                 <IconLeaf />
-              </div>
-              <h3>Authentic Konaseema Flavours</h3>
-              <p>
+              </motion.div>
+              <motion.h3 variants={itemVariants}>
+                Authentic Konaseema Flavours
+              </motion.h3>
+              <motion.p variants={itemVariants}>
                 Traditional coastal Andhra recipes prepared with bold spices and
                 time-honoured cooking techniques.
-              </p>
-              <span>
-                 ROOTED IN TRADITION
-              </span>
+              </motion.p>
+              <motion.span variants={itemVariants}>
+                ROOTED IN TRADITION
+              </motion.span>
             </div>
 
             <div className={`${styles.card} ${styles.highlightCard}`}>
-              <div>
+              <motion.div variants={itemVariants}>
                 <IconFlame />
-              </div>
-              <h3>Fresh & Local Ingredients</h3>
-              <p>
+              </motion.div>
+              <motion.h3 variants={itemVariants}>
+                Fresh & Local Ingredients
+              </motion.h3>
+              <motion.p variants={itemVariants}>
                 We prioritize fresh produce and quality ingredients to ensure
                 every dish delivers comfort and richness in every bite.
-              </p>
-              <span>
-                 QUALITY YOU CAN TASTE
-              </span>
+              </motion.p>
+              <motion.span variants={itemVariants}>
+                QUALITY YOU CAN TASTE
+              </motion.span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

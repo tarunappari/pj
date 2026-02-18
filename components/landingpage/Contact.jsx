@@ -9,6 +9,8 @@ import {
   IconSparkles,
   IconMail,
 } from "@tabler/icons-react";
+import BlurReveal from "../animations/BlurAnimation";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const contactInfo = [
@@ -40,39 +42,74 @@ const Contact = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className={styles.container} id="contact">
       <div className={styles.content}>
         {/* Header */}
         <div className={styles.header}>
-          <h2>Visit Us <span className="yellow">Today</span></h2>
-          <p>We'd love to hear from you. Reach out to us anytime!</p>
+          <BlurReveal>
+            <h2>
+              Visit Us <span className="yellow">Today</span>
+            </h2>
+          </BlurReveal>
+          <BlurReveal delay={200}>
+            <p>We'd love to hear from you. Reach out to us anytime!</p>
+          </BlurReveal>
         </div>
 
         {/* Main Content Grid */}
-        <div className={styles.mainGrid}>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
+          className={styles.mainGrid}
+        >
           {/* Left Side - Contact Info */}
           <div className={styles.infoSection}>
             <div className={styles.brandCard}>
-              <div className={styles.brandHeader}>
+              <motion.div variants={itemVariants}    className={styles.brandHeader}>
                 <h3>PJ Resto Cafe</h3>
-              </div>
+              </motion.div>
 
               <div className={styles.contactCards}>
                 {contactInfo.map((info, index) => (
-                  <div key={index} className={styles.infoCard}>
+                  <motion.div variants={itemVariants} key={index} className={styles.infoCard}>
                     <div className={styles.iconBox}>{info.icon}</div>
                     <div className={styles.infoText}>
                       {info.details.map((detail, idx) => (
                         <p key={idx}>{detail}</p>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               {/* Action Buttons */}
-              <div className={styles.actionButtons}>
+              <motion.div variants={itemVariants} className={styles.actionButtons}>
                 <a href="tel:+919888916667" className={styles.callButton}>
                   <IconPhone size={20} stroke={2} />
                   Call Now
@@ -86,11 +123,11 @@ const Contact = () => {
                   <IconBrandWhatsapp size={20} stroke={2} />
                   WhatsApp
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
 
-          <div className={styles.mapSection}>
+          <motion.div variants={itemVariants} className={styles.mapSection}>
             <div className={styles.mapContainer}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.4125451677546!2d81.83704037491975!3d16.756138484027385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37c1002358faa1%3A0x4cdca3a0fe6032b7!2sJuluru&#39;s%20PJ%20Resto%20Cafe!5e0!3m2!1sen!2sin!4v1771357416026!5m2!1sen!2sin"
@@ -114,8 +151,8 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

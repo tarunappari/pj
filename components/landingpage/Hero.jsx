@@ -9,6 +9,7 @@ import { IconToolsKitchen2, IconMap2 } from "@tabler/icons-react";
 import phone from "@/public/assets/images/pj1.png";
 import hero from "@/public/assets/images/pj2.png";
 import desk from "@/public/assets/images/pj6.png";
+import BlurReveal from "../animations/BlurAnimation";
 
 // Using the actual image file that exists
 const heroBg1 = "/assets/images/pj1.png";
@@ -172,17 +173,27 @@ export default function Hero() {
       <Navbar />
       <div className={styles.heroText}>
         <div style={{ marginTop: "-4rem" }} className={styles.heroCopy}>
-          <h1>PJ</h1>
-          <h2> Resto Cafe</h2>
-          <h3 className={`${styles.heroSubtitle} yellow`}>Good Food. Great Memories.</h3>
-          <div className={styles.btnDiv}>
-            <button className={styles.table}>
-              Book a Table <IconToolsKitchen2 />{" "}
-            </button>
-            <button className={styles.directions}>
-              Get Directions <IconMap2 />
-            </button>
-          </div>
+          <BlurReveal>
+            <h1>PJ</h1>
+          </BlurReveal>
+          <BlurReveal delay={200}>
+            <h2> Resto Cafe</h2>
+          </BlurReveal>
+          <BlurReveal delay={400}>
+            <h3 className={`${styles.heroSubtitle} yellow`}>
+              Good Food. Great Memories.
+            </h3>
+          </BlurReveal>
+          <BlurReveal delay={600} rootMargin="0px">
+            <div className={styles.btnDiv}>
+              <button className={styles.table}>
+                Book a Table <IconToolsKitchen2 />{" "}
+              </button>
+              <button className={styles.directions}>
+                Get Directions <IconMap2 />
+              </button>
+            </div>
+          </BlurReveal>
         </div>
 
         {/* <div className={styles.heroGallery}>

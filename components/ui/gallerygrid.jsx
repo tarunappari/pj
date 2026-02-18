@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import styles from "@/styles/landingpage/gallery.module.scss";
+import BlurReveal from "../animations/BlurAnimation";
 
 const containerVariants = {
   hidden: {},
@@ -105,15 +106,17 @@ const InteractiveImageBentoGallery = ({ imageItems, title, description }) => {
         style={{ opacity, y }}
         className="container mx-auto px-4 text-center"
       >
-        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {title} <span>PJ</span> 🎉
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          {description}
-        </p>
+        <BlurReveal delay={200}>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            {title} <span>PJ</span> 🎉
+          </h2>
+        </BlurReveal>
+        <BlurReveal delay={400}>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            {description}
+          </p>
+        </BlurReveal>
       </motion.div>
-
-      
 
       <div
         ref={containerRef}

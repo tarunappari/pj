@@ -15,10 +15,11 @@ import chelo3 from "@/public/assets/spls/chelo3.jpg";
 import styles from "@/styles/landingpage/Menu.module.scss";
 import FlowingMenu from "../ui/reactbits/flowmenu";
 
-import flavor1 from '@/public/assets/flavors/flavors1.png'
-import flavor2 from '@/public/assets/flavors/flavors2.png'
-import flavor3 from '@/public/assets/flavors/flavors3.png'
-import flavor4 from '@/public/assets/flavors/flavors4.png'
+import flavor1 from "@/public/assets/flavors/flavors1.png";
+import flavor2 from "@/public/assets/flavors/flavors2.png";
+import flavor3 from "@/public/assets/flavors/flavors3.png";
+import flavor4 from "@/public/assets/flavors/flavors4.png";
+import BlurReveal from "../animations/BlurAnimation";
 
 const images = [
   {
@@ -71,11 +72,19 @@ const Menu = () => {
   return (
     <div className={styles.container}>
       <div>
-        <h1>Our Signature<span className="yellow"> Items</span> </h1>
+        <BlurReveal delay={100}>
+          <h1>
+            Our Signature<span className="yellow"> Items</span>{" "}
+          </h1>
+        </BlurReveal>
 
         <HorizontalScrollCarousel images={images} />
 
-        <h1>Flavours of <span className="yellow">Konaseema</span></h1>
+        <BlurReveal delay={100}>
+          <h1>
+            Flavours of <span className="yellow">Konaseema</span>
+          </h1>
+        </BlurReveal>
 
         <div style={{ height: "600px", position: "relative" }}>
           <FlowingMenu
